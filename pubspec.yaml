@@ -1,0 +1,11 @@
+name: grand_copperframe
+description: The higher level data model for copperframe
+version: 0.3.0
+repository: https://github.com/flarebyte/grand_copperframe
+
+environment:
+  sdk: ^3.4.4
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0

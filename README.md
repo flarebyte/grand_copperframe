@@ -1,45 +1,39 @@
-# grand\_copperframe
+<!-- 
+This README describes the package. If you publish this package to pub.dev,
+this README's contents appear on the landing page for your package.
 
-![Experimental](https://img.shields.io/badge/status-experimental-blue)
+For information about how to write a good package README, see the guide for
+[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
 
-> The higher level data model for copperframe
+For general information about developing packages, see the Dart guide for
+[creating packages](https://dart.dev/guides/libraries/create-library-packages)
+and the Flutter guide for
+[developing packages and plugins](https://flutter.dev/developing-packages). 
+-->
 
-The higher level data model for copperframe
+TODO: Put a short description of the package here that helps potential users
+know whether this package might be useful for them.
 
-![Hero image for grand\_copperframe](doc/grand_copperframe.jpeg)
+## Features
 
-Highlights:
+TODO: List what your package can do. Maybe include images, gifs, or videos.
 
--   Provide the higher level model for copperframe
+## Getting started
 
-A few examples:
+TODO: List prerequisites and provide or point to information on how to
+start using the package.
 
-Create a message:
+## Usage
+
+TODO: Include short and useful examples for package users. Add longer examples
+to `/example` folder. 
 
 ```dart
-final tooSmallMessage = CopperframeMessage(label: 'Too small',level:
-CopperframeMessageLevel.error, category: 'length');
+const like = 'sample';
 ```
 
-## Documentation and links
+## Additional information
 
--   [Code Maintenance :wrench:](MAINTENANCE.md)
--   [Code Of Conduct](CODE_OF_CONDUCT.md)
--   [Contributing :busts\_in\_silhouette: :construction:](CONTRIBUTING.md)
--   [Architectural Decision Records :memo:](DECISIONS.md)
--   [Contributors
-    :busts\_in\_silhouette:](https://github.com/flarebyte/grand_copperframe/graphs/contributors)
--   [Dependencies](https://github.com/flarebyte/grand_copperframe/network/dependencies)
--   [Glossary
-    :book:](https://github.com/flarebyte/overview/blob/main/GLOSSARY.md)
--   [Software engineering principles
-    :gem:](https://github.com/flarebyte/overview/blob/main/PRINCIPLES.md)
--   [Overview of Flarebyte.com ecosystem
-    :factory:](https://github.com/flarebyte/overview)
--   [Dart dependencies](DEPENDENCIES.md)
--   [Usage](USAGE.md)
--   [Example](example/example.dart)
-
-## Related
-
--   [form\_validator](https://pub.dev/packages/form_validator)
+TODO: Tell users more about the package: where to find more information, how to 
+contribute to the package, how to file issues, what response they can expect 
+from the package authors, and more.
