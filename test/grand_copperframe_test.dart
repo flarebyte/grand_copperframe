@@ -202,4 +202,36 @@ void main() {
           () => CopperframeFieldWidget.fromJson(json), throwsFormatException);
     });
   });
+
+  group('CopperframeMessageProducer', () {
+    test('should return a constant message', () {
+      final blueMessage = CopperframeMessage(
+        label: 'This is a blue message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+        flags: 'blue',
+      );
+      final producer = CopperframeMessageProducer(blueMessage);
+      expect(producer.produce({}, 'anything'), equals(blueMessage));
+    });
+
+    test('should create multiple producers from a list of messages', () {
+      final blueMessage = CopperframeMessage(
+        label: 'This is a blue message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+        flags: 'blue',
+      );
+
+      final redMessage = CopperframeMessage(
+        label: 'This is an red message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+        flags: 'red',
+      );
+      final producers =
+          CopperframeMessageProducer.createProducers([blueMessage, redMessage]);
+      expect(producers.length, 2);
+    });
+  });
 }
