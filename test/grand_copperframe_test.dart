@@ -2,13 +2,16 @@ import 'package:grand_copperframe/grand_copperframe.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('UserMessage', () {
+  group('CopperframeMessage', () {
     test('toJson and fromJson serialization/deserialization', () {
       final message = CopperframeMessage(
         label: 'This is an info message',
         level: CopperframeMessageLevel.info,
         category: 'usage',
       );
+
+      expect(message.toString(),
+          equals('CopperframeMessageLevel.info This is an info message'));
 
       final json = message.toJson();
       final deserializedMessage = CopperframeMessage.fromJson(json);
@@ -35,6 +38,37 @@ void main() {
       };
 
       expect(() => CopperframeMessage.fromJson(json), throwsArgumentError);
+    });
+
+    test('get messages should return messages with or without flags', () {
+      final blueMessage = CopperframeMessage(
+        label: 'This is a blue message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+        flags: 'blue',
+      );
+      final redMessage = CopperframeMessage(
+        label: 'This is an red message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+        flags: 'red',
+      );
+
+      final yellowMessage = CopperframeMessage(
+        label: 'This is a yellow message',
+        level: CopperframeMessageLevel.info,
+        category: 'usage',
+      );
+
+      final actualsWithFlag = CopperframeMessage.getMessagesWithFlag(
+          [yellowMessage, blueMessage, redMessage], 'blue');
+      expect(actualsWithFlag.length, 1);
+      expect(actualsWithFlag[0].label, blueMessage.label);
+
+      final actualsWithoutFlag = CopperframeMessage.getMessagesWithNoFlag(
+          [yellowMessage, blueMessage, redMessage]);
+      expect(actualsWithoutFlag.length, 1);
+      expect(actualsWithoutFlag[0].label, yellowMessage.label);
     });
   });
 
