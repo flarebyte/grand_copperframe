@@ -1,5 +1,30 @@
 import 'package:grand_copperframe/grand_copperframe.dart';
 import 'package:test/test.dart';
+import 'package:validomix/validomix.dart';
+
+class SimpleRule extends VxBaseRule<CopperframeMessage> {
+  @override
+  List<CopperframeMessage> validate(Map<String, String> options, String value) {
+    final message = CopperframeMessage(
+      label: 'Simple message',
+      level: CopperframeMessageLevel.info,
+      category: 'usage',
+    );
+    return [message];
+  }
+}
+
+class SecondRule extends VxBaseRule<CopperframeMessage> {
+  @override
+  List<CopperframeMessage> validate(Map<String, String> options, String value) {
+    final message = CopperframeMessage(
+      label: 'Second message',
+      level: CopperframeMessageLevel.info,
+      category: 'usage',
+    );
+    return [message];
+  }
+}
 
 void main() {
   group('CopperframeMessage', () {
@@ -232,6 +257,30 @@ void main() {
       final producers =
           CopperframeMessageProducer.createProducers([blueMessage, redMessage]);
       expect(producers.length, 2);
+    });
+  });
+
+  group('CopperframeRule', () {
+    test('', () {
+      final rule =
+          CopperframeRule(rule: SimpleRule(), options: {'key113': 'value123'});
+      final actual = rule.validate('some text');
+      expect(actual.length, 1);
+      expect(actual[0].label, 'Simple message');
+    });
+  });
+
+  group('CopperframeRuleComposer', () {
+    test('', () {
+      final rule =
+          CopperframeRule(rule: SimpleRule(), options: {'key113': 'value123'});
+      final rule2 =
+          CopperframeRule(rule: SecondRule(), options: {'key114': 'value125'});
+      final composer = CopperframeRuleComposer([rule, rule2]);
+      final actual = composer.validate('some text');
+      expect(actual.length, 2);
+      expect(actual[0].label, 'Simple message');
+      expect(actual[1].label, 'Second message');
     });
   });
 }
