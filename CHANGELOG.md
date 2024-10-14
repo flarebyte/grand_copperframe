@@ -1,3 +1,5 @@
-## 1.0.0
+## 0.3.0
 
-- Initial version.
+-   Initial version.
+-   Manage friendly user messages
+-   Create a skeleton for rules with friendly messages

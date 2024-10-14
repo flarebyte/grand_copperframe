@@ -1,13 +1,14 @@
 model:
   project:
     title: The higher level data model for copperframe
-    description: The higher level data model for copperframe
+    description: The data model used by copperframe components
     version: 0.3.0
     keywords:
       - message
   readme:
     highlights:
-      - Provide the higher level model for copperframe
+      - Create friendly user message
+      - Create a skeleton for rules with friendly messages
     links:
       - "[Dart dependencies](DEPENDENCIES.md)"
       - "[Usage](USAGE.md)"
@@ -19,7 +20,9 @@ model:
     cheatsheetFormat: dart
     cheatsheet:
       - title: Create a message
-        example: "final tooSmallMessage = CopperframeMessage(label: 'Too small',level: CopperframeMessageLevel.error, category: 'length');"
+        example: "final  message  =  CopperframeMessage(  label:  'This  is  an  info  message',  level:  CopperframeMessageLevel.info,  category:  'usage',  );"
+      - title: Create a rule
+        example: "final  rule  =  CopperframeFieldRule(  name:  'Length  Check',  options:  {'min':  '1',  'max':  '255'},  successMessages:  [  failureMessages:  [  message  ],  );"
   github:
     account: flarebyte
     name: grand_copperframe
