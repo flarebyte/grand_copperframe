@@ -274,7 +274,7 @@ workflows:
               run: dart
             - name: release
               title: Release the library to Github
-              run: gh release create "v{{build.model.project.version}}" --generate-notes
+              run: gh release create v{{build.model.project.version}} --generate-notes
             - name: refresh
               title: Get the latest tag from Github
               run: git fetch --all
