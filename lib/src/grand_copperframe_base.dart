@@ -19,6 +19,20 @@ class CopperframeMessage {
     return '$level $label';
   }
 
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CopperframeMessage &&
+          runtimeType == other.runtimeType &&
+          label == other.label &&
+          level == other.level &&
+          category == other.category &&
+          flags == other.flags;
+
+  @override
+  int get hashCode =>
+      label.hashCode ^ level.hashCode ^ category.hashCode ^ flags.hashCode;
+
   /// Constructs a [CopperframeMessage] with the provided [label], [level], and [category].
   CopperframeMessage({
     required this.label,

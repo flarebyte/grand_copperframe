@@ -88,12 +88,12 @@ void main() {
       final actualsWithFlag = CopperframeMessage.getMessagesWithFlag(
           [yellowMessage, blueMessage, redMessage], 'blue');
       expect(actualsWithFlag.length, 1);
-      expect(actualsWithFlag[0].label, blueMessage.label);
+      expect(actualsWithFlag[0], blueMessage);
 
       final actualsWithoutFlag = CopperframeMessage.getMessagesWithNoFlag(
           [yellowMessage, blueMessage, redMessage]);
       expect(actualsWithoutFlag.length, 1);
-      expect(actualsWithoutFlag[0].label, yellowMessage.label);
+      expect(actualsWithoutFlag[0], yellowMessage);
     });
   });
 
